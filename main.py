@@ -19,14 +19,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from fastapi.responses import HTMLResponse
-
-@app.get("/", response_class=HTMLResponse)
-async def serve_frontend():
-    with open("frontend.html", "r") as f:
-        html_content = f.read()
-    return HTMLResponse(content=html_content)
-
 
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
